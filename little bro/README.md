@@ -1,2 +1,2 @@
 # Algorithm
-Amazing algorithm
+OFFER, OFFER, COME HERE!
