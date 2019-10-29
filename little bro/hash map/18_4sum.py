@@ -5,32 +5,33 @@ class Solution(object):
         :type target: int
         :rtype: List[List[int]]
         """
+        # third time
+        if len(nums)<4:
+            return []
         nums.sort()
         res = []
-
-        for i in range(len(nums)-3):
-            if i>0 and nums[i] == nums[i-1]:
-                continue            
-            for j in range(i+1, len(nums)-2): 
-                if (j>i+1 and nums[j] == nums[j-1]):
-                    continue
-                l = j+1
-                r = len(nums)-1
-                
+        def NSum(ls, remain, N, temp_res, res):
+            if N > 2:
+                for i in range(len(ls)):
+                    if i > 0 and ls[i] == ls[i-1]:
+                        continue
+                    NSum(ls[i+1:], remain-ls[i], N-1, temp_res+[ls[i]], res)
+            else:
+                l,r = 0, len(ls)-1
                 while l<r:
-                    if ( l-1 != j) and nums[l]== nums[l-1]:
+                    add = ls[l] + ls[r]
+                    if add < remain:
                         l += 1
-                        continue
-                    if ( r+1 != len(nums) and nums[r] == nums):
+                    elif add > remain:
                         r -= 1
-                        continue
-                    temp_sum = nums[i]+nums[j]+nums[l]+nums[r]
-                    if temp_sum > target:
-                        r -= 1
-                    elif temp_sum < target:
-                        l += 1
                     else:
-                        res.append([nums[i],nums[j],nums[l],nums[r]])
+                        res.append(temp_res+[ls[l],ls[r]])
                         l += 1
                         r -= 1
+                        while l<r and ls[l] == ls[l-1]:
+                            l += 1
+                        while l<r and ls[r] == ls[r+1]:
+                            r -= 1
+        NSum(nums, target, 4, [], res)
         return res
+        
