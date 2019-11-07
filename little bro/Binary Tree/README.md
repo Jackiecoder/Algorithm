@@ -15,3 +15,7 @@
     There is a connection between 95 and 96. 
     96 uses recursion
     95 uses dp method.
+
+3. 124
+    worth to redo
+    
