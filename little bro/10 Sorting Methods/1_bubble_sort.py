@@ -1,5 +1,5 @@
 # ascending bubble sort
-import random
+from test_random import test_case
 
 
 def bubblesort(ls):
@@ -12,9 +12,6 @@ def bubblesort(ls):
 
 
 if __name__ == "__main__":
-    testcase = list(range(20))
-    random.seed(123)
-    random.shuffle(testcase)
-    print("the inputs is ", testcase)
-    res = bubblesort(testcase)
-    print("The sorted list is :", res)
+    testcase = test_case().shuffle()
+    print(testcase)
+    print(bubblesort(testcase))
