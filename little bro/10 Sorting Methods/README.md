@@ -13,8 +13,8 @@ $把list 无限对半分，再将每一小块排序。$
 6. *shell sort: best: O($nlog_{n}$), worst: O($nlog^{2}_{n}$)
 7. count sort: O($n+k$)
 $把list 中每个数值的个数记录，重新记录到一个list中。缺点是空间复杂度高$
-8. *heap sort: O($nlog_{n}$)
+8. *heap sort: O($nlog_{n}$) -- 912
 $把heap的堆顶放到最后一个叶子结点，并且将heap重新排序。如此循环。$
 9. *Radix sort: O($(n+b) * log_{b}(k)$)
 
-10. bucket sort:
+10. *bucket sort:
