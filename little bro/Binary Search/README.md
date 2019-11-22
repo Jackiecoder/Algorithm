@@ -1,4 +1,5 @@
 1. 378 runtime too long
+内部二分：nlogn
 
 2. 153 better condition for length = 0,1,2
 
